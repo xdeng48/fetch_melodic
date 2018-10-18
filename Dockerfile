@@ -16,6 +16,20 @@ RUN echo 'source /opt/ros/melodic/setup.bash' >> /root/.bashrc
 # Create ROS ws
 RUN mkdir -p /root/catkin_ws/src && cd /root/catkin_ws
 
+# Install dependencies
+RUN apt-get install lidsdl-image1.2-dev
+RUN apt-get install libsdl-dev
+RUN apt-get install ros-melodic-moveit-core
+RUN apt-get install ros-melodic-tf2-sensor-msgs
+
+# Install Fetch Melodic
+RUN cd ~/catkin_ws/src
+RUN git clone https://github.com/fetchrobotics/fetch_ros.git
+RUN git clone https://github.com/fetchrobotics/fetch_gazebo.git
+RUN git clone https://github.com/ros-planning/navigation.git
+RUN git clone https://github.com/ros-planning/navigation_msgs.git
+
+
 # Install a VNC X-server, Frame buffer, and windows manager
 RUN apt-get install -y x11vnc xvfb fluxbox
 
