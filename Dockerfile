@@ -23,7 +23,7 @@ RUN apt-get install lidsdl-image1.2-dev && \
     apt-get install ros-melodic-tf2-sensor-msgs
 
 # Install Fetch Melodic
-RUN cd ~/catkin_ws/src && \
+RUN cd /root/catkin_ws/src && \
     git clone https://github.com/fetchrobotics/fetch_ros.git && \
     git clone https://github.com/fetchrobotics/fetch_gazebo.git && \
     git clone https://github.com/ros-planning/navigation.git && \
