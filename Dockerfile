@@ -29,6 +29,19 @@ RUN cd /root/catkin_ws/src && \
     git clone https://github.com/ros-planning/navigation.git && \
     git clone https://github.com/ros-planning/navigation_msgs.git
 
+# Install moveit
+RUN rosdep update && \
+    apt-get update && \
+    apt-get dist-upgrade && \
+    apt install ros-melodic-moveit
+
+# Create moveit ws
+RUN mkdir -p /root/ws_moveit/src && \
+    rosdep install -y --from-paths . --ignore-src --rosdistro melodic && \
+    cd /root/ws_moveit && \
+    catkin config --extend /opt/ros/melodic && \
+    catkin build && \
+    source /root/ws_moveit/devel/setup.bash
 
 # Install a VNC X-server, Frame buffer, and windows manager
 RUN apt-get install -y x11vnc xvfb fluxbox
