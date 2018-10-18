@@ -49,7 +49,7 @@ VNC Clients are
 
 To build:
 
-- `docker build -t gtmobilemanipulation/mm8803-perception .`
+- `docker build -t xdeng48/fetch_melodic .`
 
 ## Dockerfile details
 
