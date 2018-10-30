@@ -7,7 +7,6 @@ docker run -d --name $1 -it \
   --env="DISPLAY" \
   --workdir="/root" \
   --volume="/home/$USER/data:/root/data:ro" \
-  --volume="/home/$USER/data/mask_rcnn_coco.h5:/root/.ros/mask_rcnn_coco.h5:ro" \
   --volume="/etc/group:/etc/group:ro" \
   --volume="/etc/passwd:/etc/passwd:ro" \
   --volume="/etc/shadow:/etc/shadow:ro" \
